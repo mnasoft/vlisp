@@ -90,3 +90,22 @@
 (defun dr-insert (point block-name &key (os *standard-output*))
   (format os "(dr:insert '(~{~f~^ ~}) ~s)~%" point block-name))
 
+
+
+(defun axis-alert-mode-set (val &key (os *standard-output*))
+  (format os "(mnas-axis:alert-mode-set ~a)~%" val))
+
+(defun axis-prompt-mode-set  (val &key (os *standard-output*))
+  (format os "(mnas-axis:prompt-mode-set ~a)~%" val))
+
+(defun axis-print-list (axis-name axis-data &key (os *standard-output*))
+  (format os "(setq ~A '(~{~f~^ ~}))~%" axis-name axis-data)
+  )
+
+(defun axis-draw-multiple-graphs-by-axis-names (x-axis-name x-axis-data y-axis-name-lst y-axis-data-lst &key (os *standard-output*))
+  (axis-alert-mode-set nil)
+  (axis-prompt-mode-set nil)
+  (axis-print-list x-axis-name x-axis-data :os os)
+  (mapcar #'(lambda (nm data ) (axis-print-list nm data :os os)) y-axis-name-lst y-axis-data-lst)
+  (format os "(axis:draw-multiple-graphs-by-axis-names ~S '~S)~%" x-axis-name y-axis-name-lst))
+
