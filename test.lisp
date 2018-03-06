@@ -5,6 +5,7 @@
 ;;;;  (load-vlisp-file "./src/lsp/utils/draw.lsp")
 (progn 
   (load-vlisp-file "./bin/Axis.VLX")
+  (load-vlisp-file "./bin/dim_style.VLX")
   (axis-load-point-types)
   (dr-point        '(10 20 30) 256 )
   (dr-ch_prop      '((62 . 5)))
@@ -35,10 +36,3 @@
      (0.01 0.08 0.27 0.64 1.25 2.16 3.43 5.12 7.29)))
 
   )
-
-
-
-
-
-
-
