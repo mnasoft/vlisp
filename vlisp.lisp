@@ -8,6 +8,11 @@
 (defun load-vlisp-file (fname &key (os *standard-output*))
   (format os "(load (findfile ~s))~%" fname))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun axis-block-scale-set (xyz-scale &key (os *standard-output*))
+  (format os "(mnas-axis:block-scale-set ~f)~%" xyz-scale))
+
 (defun axis-load-point-types (&key (os *standard-output*))
   (format os "(axis:load-point-types)~%"))
 
@@ -67,8 +72,8 @@
 (defun dr-ray (start-point end-point color &key (os *standard-output*))
   (format os "(dr:ray '(~{~f~^ ~}) '(~{~f~^ ~}) ~d)~%" start-point end-point color))
 
-(defun dr-text (text point height rotation color &key (os *standard-output*))
-  (format os "(dr:text ~s '(~{~f~^ ~}) ~f ~f ~d)~%" text point height rotation color))
+(defun dr-text (text point height rotation color &key (Alignment 0) (os *standard-output*))
+  (format os "(dr:text ~s '(~{~f~^ ~}) ~f ~f ~d ~d)~%" text point height rotation color Alignment))
 
 (defun dr-solid  (point1 point2 point3 point4 color &key (os *standard-output*))
   (format os "(dr:solid '(~{~f~^ ~}) '(~{~f~^ ~}) '(~{~f~^ ~}) '(~{~f~^ ~}) ~d)~%" point1 point2 point3 point4 color))
@@ -87,10 +92,14 @@
 (defun dr-layer-set (layer-name &key (os *standard-output*))
     (format os "(dr:layer-set ~s)~%" layer-name))
 
-(defun dr-insert (point block-name &key (os *standard-output*))
-  (format os "(dr:insert '(~{~f~^ ~}) ~s)~%" point block-name))
+(defun dr-insert (InsertionPoint Name Xscale Yscale ZScale Rotation &key (os *standard-output*))
+  (format os "(dr:insert '(~{~f~^ ~}) ~s ~f ~f ~f ~f)~%" InsertionPoint Name Xscale Yscale ZScale Rotation))
 
+(defun dr-mtext  (text point width height rotation color AttachmentPoint &key (os *standard-output*) )
+  "AttachmentPoint - 1 - LT; 2 - CT; 3 - RT"
+  (format os "(dr:mtext ~s '(~{~f~^ ~}) ~f ~f ~f ~d ~d)~%" text point width height rotation color AttachmentPoint))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun axis-alert-mode-set (val &key (os *standard-output*))
   (format os "(mnas-axis:alert-mode-set ~a)~%" val))
