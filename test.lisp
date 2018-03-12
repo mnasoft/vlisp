@@ -26,12 +26,7 @@
   (dr-layer-new "New-layer")
   (dr-layer-set "New-layer")
   (dr-insert '(56 89) "123" 1.0 1.0 1.0 0.0)
-
-
-
-
   (dr-mtext "Sample text sample text sample text sample text sample text sample text sample text sample text " '(10 10 ) 100 3.15 0.0 54 2)
-  
   )
 
 (defun test-axis-draw-points ()
@@ -128,7 +123,7 @@
       (dr-circle (vector+ start-point left-point ) (+ r-min (* i delta-r))   (1+ (random 7)))
       (dr-arc (vector+ start-point right-point) (+ r-min (* i delta-r)) (/ (random 10000) 1000) (/ (random 10000) 1000)  (1+ (random 7))))))
 
-(test-circle)
+(test-arc-circle)
 
 (defun test-axis ()
   (load-vlisp-file "./bin/Axis.VLX")

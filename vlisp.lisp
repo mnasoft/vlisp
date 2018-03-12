@@ -97,6 +97,13 @@
   (format os "(dr:ray '(~{~f~^ ~}) '(~{~f~^ ~}) ~d)~%" start-point end-point color))
 
 (defun dr-text (text point height rotation color &key (Alignment 0) (os *standard-output*))
+  "Alignment: 
+ L= 0   C= 1   R= 2
+Al= 3  CT= 4  Wi= 5
+TL= 6  TC= 7  TR= 8
+ML= 9  MC=10  MR=11
+BL=12  BC=13  BR=14
+"
   (format os "(dr:text ~s '(~{~f~^ ~}) ~f ~f ~d ~d)~%" text point height rotation color Alignment))
 
 (defun dr-solid  (point1 point2 point3 point4 color &key (os *standard-output*))
@@ -119,9 +126,9 @@
 (defun dr-insert (InsertionPoint Name Xscale Yscale ZScale Rotation &key (os *standard-output*) (format-sting "(dr:insert '(~{~f~^ ~}) ~s ~f ~f ~f ~f)~%")  )
   (format os format-sting InsertionPoint Name Xscale Yscale ZScale Rotation))
 
-(defun dr-mtext  (text point width height rotation color AttachmentPoint &key (os *standard-output*) )
+(defun dr-mtext  (InsertionPoint Width Text height rotation color AttachmentPoint &key (os *standard-output*) )
   "AttachmentPoint - 1 - LT; 2 - CT; 3 - RT"
-  (format os "(dr:mtext ~s '(~{~f~^ ~}) ~f ~f ~f ~d ~d)~%" text point width height rotation color AttachmentPoint))
+  (format os "(dr:mtext '(~{~f~^ ~}) ~f ~s ~f ~f ~d ~d)~%" InsertionPoint Width Text height rotation color AttachmentPoint))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -196,8 +203,8 @@
   )
 
 (defun axis-draw-multiple-graphs-by-axis-names (x-axis-name x-axis-data y-axis-name-lst y-axis-data-lst &key (os *standard-output*))
-  (axis-alert-mode-set nil)
-  (axis-prompt-mode-set nil)
+  (axis-alert-mode-set nil  :os os)
+  (axis-prompt-mode-set nil :os os)
   (axis-print-list x-axis-name x-axis-data :os os)
   (mapcar #'(lambda (nm data ) (axis-print-list nm data :os os)) y-axis-name-lst y-axis-data-lst)
   (format os "(axis:draw-multiple-graphs-by-axis-names ~S '~S)~%" x-axis-name y-axis-name-lst))
