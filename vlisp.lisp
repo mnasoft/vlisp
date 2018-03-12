@@ -1,3 +1,4 @@
+
 ;;;; vlisp.lisp
 
 (in-package #:vlisp)
@@ -10,6 +11,27 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defun axis-point-type-block-name (&key (os *standard-output*))
+  (format os "(axis:point-type-block-name)"))
+  
+(defun axis-load-reset-point-types (&key (os *standard-output*))
+  (format os "(axis:load-reset-point-types)~%"))
+
+(defun axis-point-type-reset (&key (os *standard-output*))
+  (format os "(axis:point-type-reset)~%"))
+
+(defun axis-point-type-next (&key (os *standard-output*))
+  (format os "(axis:point-type-next)~%"))
+  
+(defun axis-draw-point-set (flag &key (os *standard-output*))
+  (format os "(mnas-axis:draw-point-set ~a)~%" flag))
+
+(defun axis-draw-pline-set (flag &key (os *standard-output*))
+  (format os "(mnas-axis:draw-pline-set ~a)~%" flag))
+
+(defun axis-draw-spline-set (flag &key (os *standard-output*))
+  (format os "(mnas-axis:draw-spline-set ~a)~%" flag))
+
 (defun axis-block-scale-set (xyz-scale &key (os *standard-output*))
   (format os "(mnas-axis:block-scale-set ~f)~%" xyz-scale))
 
@@ -18,6 +40,8 @@
 
 (defun dr-axis (start-pt end-pt start-value end-value flag name &key (os *standard-output*))
   (format os "(dr:axis '(~{~f~^ ~}) '(~{~f~^ ~}) ~f ~f ~d ~s)~%" start-pt end-pt start-value end-value flag name))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun dr-ch_prop  (property-list &key (os *standard-output*))
   (format os "(dr:ch_prop '(")
@@ -92,13 +116,73 @@
 (defun dr-layer-set (layer-name &key (os *standard-output*))
     (format os "(dr:layer-set ~s)~%" layer-name))
 
-(defun dr-insert (InsertionPoint Name Xscale Yscale ZScale Rotation &key (os *standard-output*))
-  (format os "(dr:insert '(~{~f~^ ~}) ~s ~f ~f ~f ~f)~%" InsertionPoint Name Xscale Yscale ZScale Rotation))
+(defun dr-insert (InsertionPoint Name Xscale Yscale ZScale Rotation &key (os *standard-output*) (format-sting "(dr:insert '(~{~f~^ ~}) ~s ~f ~f ~f ~f)~%")  )
+  (format os format-sting InsertionPoint Name Xscale Yscale ZScale Rotation))
 
 (defun dr-mtext  (text point width height rotation color AttachmentPoint &key (os *standard-output*) )
   "AttachmentPoint - 1 - LT; 2 - CT; 3 - RT"
   (format os "(dr:mtext ~s '(~{~f~^ ~}) ~f ~f ~f ~d ~d)~%" text point width height rotation color AttachmentPoint))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defparameter *origin* '(0 0 0))
+
+(defun vector-length (v)
+  (sqrt (apply
+	 #'+ (mapcar #'(lambda (el) (* el el))
+		     v))))
+
+(defun vector+ (point displasment)
+  (mapcar #'+ point displasment))
+
+(defun vector- (point displasment)
+  (mapcar #'- point displasment))
+
+(defun normalize (vector)
+  (let ((length (vector-length vector)))
+    (if (>  length 0)
+	(mapcar #'(lambda (el) (/ el length)) vector)
+	(error "(defun normalize (vector)...) vector-length <= 0 ")
+	)))
+
+(defun mid-point (point1 point2)
+  (mapcar #'(lambda (el) (/ el 2))
+	  (vector+ point1 point2)))
+
+(defun distance (point1 point2)
+  (vector-length  (vector- point1 point2)))
+
+(defun polar (point angle distance)
+  (vector+ point (list (* distance (cos angle)) (* distance (sin angle)) 0)))
+
+(defun angle (point1 point2)
+  (let ((v (vector- point2 point1)))
+    (atan (second v) (first v))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun dr-rect (point width hight &key (os *standard-output*))
+  (dr-pline 
+   (list
+    point
+    (mapcar #'+ point (list width 0     0))
+    (mapcar #'+ point (list width hight 0))
+    (mapcar #'+ point (list 0     hight 0))
+    point)
+   256 :os os))
+
+(defun dr-format-a4 (point &key (os *standard-output*))
+  (let* ((size '(210 297))
+	 (in-size (vector+ size (list -25 -10))))
+    (dr-rect point (first size) (second size) :os os)
+    (dr-rect (vector+ point (list 20 5))  (first in-size) (second in-size) :os os)))
+
+(defun dr-format-a3 (point &key (os *standard-output*))
+  (let* ((size '(420 297))
+	 (in-size (vector+ size (list -25 -10))))
+    (dr-rect point (first size) (second size) :os os)
+    (dr-rect (vector+ point (list 20 5))  (first in-size) (second in-size) :os os)))
+  
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun axis-alert-mode-set (val &key (os *standard-output*))
@@ -117,4 +201,25 @@
   (axis-print-list x-axis-name x-axis-data :os os)
   (mapcar #'(lambda (nm data ) (axis-print-list nm data :os os)) y-axis-name-lst y-axis-data-lst)
   (format os "(axis:draw-multiple-graphs-by-axis-names ~S '~S)~%" x-axis-name y-axis-name-lst))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun lines-load-line-types (&key (os *standard-output*))
+    (format os "(mnas-lines:load-line-types)~%"))
+  
+  
+(defun setvar (variable value &key (os *standard-output*))
+  (format os
+	  (concatenate
+	   'string
+	   "(setvar ~s "
+	   (cond
+	     ((null value) "~a")
+	     ((stringp value) "~s")
+	     ((numberp value) "~f")
+	     ((listp value)   "'(~{~f~^ ~})")
+	     (t "~f"))
+	   ")~%")
+	  variable value))
+
 
