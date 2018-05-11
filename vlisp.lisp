@@ -39,7 +39,7 @@
   (format os "(axis:load-point-types)~%"))
 
 (defun dr-axis (start-pt end-pt start-value end-value flag name &key (os *standard-output*) (caption "") (dimension ""))
-  (format os "(dr:axis '(~{~f~^ ~}) '(~{~f~^ ~}) ~f ~f ~d ~s ~s ~s)~%" start-pt end-pt start-value end-value flag name caption dimension))
+  (format os "(dr:axis '(~{~f~^ ~}) '(~{~f~^ ~}) ~f ~f ~d ~s ~s ~s)~%" start-pt end-pt start-value end-value flag (mnas-string:translit name) caption dimension))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
