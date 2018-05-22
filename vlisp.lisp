@@ -6,8 +6,17 @@
 (defun dotted-listp (lst)
   (not (listp (cdr (last lst)))))
 
+(export 'dotted-listp)
+
 (defun load-vlisp-file (fname &key (os *standard-output*))
   (format os "(load (findfile ~s))~%" fname))
+
+(export 'load-vlisp-file)
+
+(defun load-vlisp-apps (&key (os *standard-output*) (apps '("./bin/Axis.VLX" "./bin/dim_style.VLX" "./bin/lines.VLX")))
+  (mapc #'(lambda (app) (vlisp:load-vlisp-file app  :os os)) apps))
+
+(export 'load-vlisp-apps)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -228,5 +237,3 @@ BL=12  BC=13  BR=14
 	     (t "~f"))
 	   ")~%")
 	  variable value))
-
-
