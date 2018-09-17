@@ -1,9 +1,9 @@
 ;;;; vlisp.asd
 
-(asdf:defsystem #:vlisp
+(defsystem #:vlisp
   :description "Describe vlisp here"
-  :author "Your Name <your.name@example.com>"
-  :license  "Specify license here"
+  :author "Nick Matvyeyev <mnasoft@gmail.com>"
+  :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :version "0.0.1"
   :serial t
   :depends-on (#:mnas-string)
