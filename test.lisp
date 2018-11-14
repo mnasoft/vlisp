@@ -3,6 +3,15 @@
 (in-package #:vlisp)
 
 ;;;;  (load-vlisp-file "./src/lsp/utils/draw.lsp")
+
+(progn 
+  (load-vlisp-file "./bin/Axis.VLX")
+  (load-vlisp-file "./bin/dim_style.VLX")
+  (load-vlisp-file "./bin/lines.VLX")
+  (loop :for y :from 0  :to 297 :by 5 
+	       :for c :from 10 :to 250 :by 10 
+	    :collect (vlisp:dr-line (list 0 y 0) (list 210 y 0) c)))
+
 (progn 
   (load-vlisp-file "./bin/Axis.VLX")
   (load-vlisp-file "./bin/dim_style.VLX")
