@@ -1,54 +1,67 @@
 ;;;; package.lisp
 
+(defpackage #:vlisp )
+
 (defpackage #:vlisp
   (:use #:cl)
 ;;;; (:export dotted-listp)
-  (:export *origin*)
-  (:export setvar)
-  (:export load-vlisp-file)
-  (:export axis-point-type-block-name
-	   axis-load-reset-point-types
-	   axis-point-type-reset
-	   axis-point-type-next
-	   axis-draw-point-set
-	   axis-draw-pline-set
-	   axis-draw-spline-set
-	   axis-block-scale-set
-	   axis-load-point-types
-	   axis-alert-mode-set
-	   axis-prompt-mode-set 
-	   axis-print-list
-	   axis-draw-multiple-graphs-by-axis-names)
-  (:export lines-load-line-types)
-  (:export dr-axis
-	   dr-ch_prop 
-	   dr-point
-	   dr-points
-	   dr-line
-	   dr-pline
-	   dr-circle
-	   dr-arc
-	   dr-xline
-	   dr-ray
-	   dr-text
-	   dr-solid 
-	   dr-spline
-	   dr-layer-new
-	   dr-layer-set
-	   dr-insert
-	   dr-mtext)
-  (:export dr-rect
-	   dr-format-a4
-	   dr-format-a3)
-  (:export vector-length
-	   vector+
-	   vector-
-	   normalize
-	   mid-point
-	   distance
-	   polar
-	   angle))
+  (:export vlisp:*origin*)
+  (:export vlisp:setvar)
+  (:export vlisp:load-vlisp-file)
+  
+  (:export vlisp:axis-point-type-block-name
+	   vlisp:axis-load-reset-point-types
+	   vlisp:axis-point-type-reset
+	   vlisp:axis-point-type-next
+	   vlisp:axis-draw-point-set
+	   vlisp:axis-draw-pline-set
+	   vlisp:axis-draw-spline-set
+	   vlisp:axis-block-scale-set
+	   vlisp:axis-load-point-types
+	   vlisp:axis-alert-mode-set
+	   vlisp:axis-prompt-mode-set 
+	   vlisp:axis-print-list
+	   vlisp:axis-draw-multiple-graphs-by-axis-names)
+  (:export vlisp:lines-load-line-types)
+  (:export vlisp:dr-axis
+	   vlisp:dr-ch_prop 
+	   vlisp:dr-point
+	   vlisp:dr-points
+	   vlisp:dr-line
+	   vlisp:dr-pline
+	   vlisp:dr-circle
+	   vlisp:dr-arc
+	   vlisp:dr-xline
+	   vlisp:dr-ray
+	   vlisp:dr-text
+	   vlisp:dr-solid 
+	   vlisp:dr-spline
+	   vlisp:dr-layer-new
+	   vlisp:dr-layer-set
+	   vlisp:dr-insert
+	   vlisp:dr-mtext)
+  
+  (:export vlisp:dr-rect
+	   vlisp:dr-format-a4
+	   vlisp:dr-format-a3)
+  
+  (:export vlisp:vector-length
+	   vlisp:vector+
+	   vlisp:vector-
+	   vlisp:normalize
+	   vlisp:mid-point)
+  (:export vlisp:angle
+	   vlisp:distance
+	   vlisp:inters
+	   vlisp:polar
+	   ))
 
 
 
 
+(osnap pt mode)
+Returns a 3D point that is the result of applying an Object Snap mode to a specified point
+(polar pt ang dist)
+Returns the UCS 3D point at a specified angle and distance from a point
+(textbox elist)
+Measures a specified text object, and returns the diagonal coordinates of a box that encloses the text

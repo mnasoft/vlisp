@@ -166,12 +166,45 @@ BL=12  BC=13  BR=14
 	  (vector+ point1 point2)))
 
 (defun distance (point1 point2)
+  "Returns the 3D distance between two points.
+Возвращает 3D расстояние между двумя точками "
   (vector-length  (vector- point1 point2)))
+
+(defun inters (pt1 pt2 pt3 pt4 &optional (onseg t))
+  "Finds the intersection of two lines.
+Находит пересечение двух линий"
+  (let* ((x1    (first  pt1))
+	 (y1    (second pt1))
+	 (x2    (first  pt1))
+	 (y2    (second pt1))
+	 (x3    (first  pt1))
+	 (y3    (second pt1))
+	 (x4    (first  pt1))
+	 (y4    (second pt1))
+	 (x2-x1 (- x2 x1))
+	 (y2-y1 (- y2 y1))
+	 (x4-x3 (- x4 x3))
+	 (y4-y3 (- y4 y3))))
+  (cond
+    ()
+    x2-x1
+    y2-y1
+    x4-x3
+    y4-y3
+    )
+  )
+
 
 (defun polar (point angle distance)
   (vector+ point (list (* distance (cos angle)) (* distance (sin angle)) 0)))
 
 (defun angle (point1 point2)
+  "Returns an angle in radians of a line defined by two endpoints.
+Возвращает угол в радианах линии, определенной двумя конечными точками
+Пример использования:
+(angle '(0 0 0) '(1 1 0))
+(angle '(0 0 0) '(1 -1 0))
+"
   (let ((v (vector- point2 point1)))
     (atan (second v) (first v))))
 
