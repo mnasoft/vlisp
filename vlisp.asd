@@ -9,4 +9,5 @@
   :depends-on (#:mnas-string)
   :components ((:file "package")
                (:file "vlisp")
-	       (:file "import-sp-line")))
+;;;;	       (:file "import-sp-line")
+	       ))
