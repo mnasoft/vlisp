@@ -9,5 +9,6 @@
   :depends-on (#:mnas-string)
   :components ((:file "package")
                (:file "vlisp")
+	       (:file "geometric-functions")
 ;;;;	       (:file "import-sp-line")
 	       ))
