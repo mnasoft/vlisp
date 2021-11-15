@@ -165,14 +165,21 @@ BL=12  BC=13  BR=14
   (mapcar #'(lambda (el) (/ el 2))
 	  (vector+ point1 point2)))
 
+(defun vector-dot-product (vector-1 vector-2)
+  "Скалярное произведение векторов."
+  (apply #'+
+         (loop :for x-1 :in vector-1
+               :for x-2 :in vector-2 :collect
+                                     (* x-1 x-2))))
 
-
-
-
-
-
-
-
+(defun vector-cross-product (vector-1 vector-2)
+  "Векторное произведение векторов."
+  (multiple-value-bind (x-1 y-1 z-1) (values-list vector-1)
+    (multiple-value-bind (x-2 y-2 z-2) (values-list vector-2)
+      (list
+       (- (* y-1 z-2) (* y-2 z-1))
+       (- (* z-1 x-2) (* x-1 z-2))
+       (- (* x-1 y-2) (* y-1 x-2) )))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

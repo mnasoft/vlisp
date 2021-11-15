@@ -51,6 +51,8 @@
 	   vector-
 	   normalize
 	   mid-point
+           vector-dot-product
+           vector-cross-product
 	   )
   (:export angle
 	   distance
