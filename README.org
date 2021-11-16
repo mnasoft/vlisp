@@ -1,9 +1,25 @@
 # vlisp
-### _Your Name <your.name@example.com>_
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: README
+#+date: <2021-11-16 Вт>
+#+author:Nick Matvyeyev
+#+email: mnasoftv@gmail.com
+#+language: ru
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.2 (Org mode 9.4.4)
 
-This is a project to do ... something.
+* Назначение
+  Проект определяет функции и методы направленные на генерирование кода
+  Visual Lisp предназначенные для:
+  - создания примитивов;
+  - манипулирования системными переменными.
 
-## License
+* Лицензия
+  GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later
 
-Specify license here
 
