@@ -51,7 +51,7 @@
 (defun dr-point (point color &key (os *standard-output*))
   "@b(Описание:) функция @b(dr-point) возвращает nil.
 
-Выводит в поток команду на языке AutoLisp, генерирующую точку.
+ Выводит в поток команду на языке AutoLisp, генерирующую точку.
 
  @b(Пример использования:)
 @begin[lang=lisp](code)
