@@ -1,16 +1,42 @@
 ;;;; ./src/core/vlisp.lisp
 
+(defpackage #:vlisp
+  (:use #:cl)
+  (:export *origin*
+	   )
+  (:export dotted-listp
+           )
+  (:export setvar
+	   )
+  (:export load-vlisp-file
+	   )
+  (:export lines-load-line-types)
+  (:export vector-length
+	   vector+
+	   vector-
+	   normalize
+	   mid-point
+           vector-dot-product
+           vector-cross-product
+	   )
+  (:export angle
+	   distance
+	   inters
+	   polar
+	   )
+  (:export load-vlisp-apps
+           )
+  (:export    osnap
+              textbox
+              ))
+
 (in-package #:vlisp)
 
 (defun load-vlisp-file (fname &key (os *standard-output*))
   (format os "(load (findfile ~s))~%" fname))
 
-(export 'load-vlisp-file)
-
 (defun load-vlisp-apps (&key (os *standard-output*) (apps '("./bin/Axis.VLX" "./bin/dim_style.VLX" "./bin/lines.VLX")))
   (mapc #'(lambda (app) (vlisp:load-vlisp-file app  :os os)) apps))
-
-(export 'load-vlisp-apps)
 
 (defparameter *origin* '(0.0d0 0.0d0 0.0d0)
   "Точка начала координат.")

@@ -22,8 +22,7 @@
   :components ((:module "src/core"
                 :serial nil
                 :components
-                ((:file "package")
-                 (:file "vlisp")
+                ((:file "vlisp")
                  (:file "geometric-functions")
                  #+nil (:file "import-sp-line")))))
 

@@ -156,6 +156,15 @@ BL=12  BC=13  BR=14
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun dr-rect (point width hight &key (os *standard-output*))
+  "@b(Описание:) функция @b(dr-rect) генерирует вывод в виде команды
+  на языке Vlisp, генерирующий прямоугольник.
+
+ @b(Пример использования:)
+@begin[lang=lisp](code)
+ (dr-rect '(10 10 0.0) 50 20) => NIL
+ -> (dr:pline '((10.0 10.0 0.0)(60.0 10.0 0.0)(60.0 30.0 0.0)(10.0 30.0 0.0)(10.0 10.0 0.0)) 256)
+@end(code)
+"
   (dr-pline 
    (list
     point
@@ -166,6 +175,8 @@ BL=12  BC=13  BR=14
    256 :os os))
 
 (defun dr-format-a4 (point &key (os *standard-output*))
+  "
+"
   (let* ((size '(210 297))
 	 (in-size (vector+ size (list -25 -10))))
     (dr-rect point (first size) (second size) :os os)
