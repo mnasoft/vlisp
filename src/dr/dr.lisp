@@ -176,14 +176,32 @@ BL=12  BC=13  BR=14
 
 (defun dr-format-a4 (point &key (os *standard-output*))
   "
+@b(Описание:) функция @b(dr-format-a4)
+
+ @b(Пример использования:)
+@begin[lang=lisp](code)
+ (dr-format-a4 '(50. 50.0)) => NIL
+ -> (dr:pline '((50.0 50.0)(260.0 50.0)(260.0 347.0)(50.0 347.0)(50.0 50.0)) 256)
+    (dr:pline '((70.0 55.0)(255.0 55.0)(255.0 342.0)(70.0 342.0)(70.0 55.0)) 256)
+@end(code)
 "
   (let* ((size '(210 297))
-	 (in-size (vector+ size (list -25 -10))))
+	 (in-size (vlisp:vector+ size (list -25 -10))))
     (dr-rect point (first size) (second size) :os os)
-    (dr-rect (vector+ point (list 20 5))  (first in-size) (second in-size) :os os)))
+    (dr-rect (vlisp:vector+ point (list 20 5))  (first in-size) (second in-size) :os os)))
 
 (defun dr-format-a3 (point &key (os *standard-output*))
+  "@b(Описание:) функция @b(dr-format-a3)
+
+ @b(Пример использования:)
+@begin[lang=lisp](code)
+ (dr-format-a3 '(500. 400. 50.0))
+ -> (dr:pline '((500.0 400.0)(920.0 400.0)(920.0 697.0)(500.0 697.0)(500.0 400.0)) 256)
+    (dr:pline '((520.0 405.0)(915.0 405.0)(915.0 692.0)(520.0 692.0)(520.0 405.0)) 256)
+ => NIL
+@end(code)
+"
   (let* ((size '(420 297))
-	 (in-size (vector+ size (list -25 -10))))
+	 (in-size (vlisp:vector+ size (list -25 -10))))
     (dr-rect point (first size) (second size) :os os)
-    (dr-rect (vector+ point (list 20 5))  (first in-size) (second in-size) :os os)))
+    (dr-rect (vlisp:vector+ point (list 20 5))  (first in-size) (second in-size) :os os)))
