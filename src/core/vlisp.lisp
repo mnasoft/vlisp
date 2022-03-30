@@ -26,9 +26,9 @@
 	   )
   (:export load-vlisp-apps
            )
-  (:export    osnap
-              textbox
-              ))
+  (:export osnap
+           textbox
+           ))
 
 (in-package #:vlisp)
 
