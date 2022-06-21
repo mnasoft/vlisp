@@ -2,7 +2,7 @@
    :scriba
    :systems (:VLISP :VLISP/DOCS)
    :documents ((:title "Vlisp"
-	        :authors ("Nick Matvyeyev")
+	        :authors ("Mykola Matvyeyev")
 	        :output-format (:TYPE :MULTI-HTML :TEMPLATE :GAMMA) 
                 :sources ("vlisp.scr" "vlisp-dr.scr" "vlisp-docs.scr"
                           "vlisp-axis.scr" "vlisp-graph.scr"

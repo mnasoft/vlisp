@@ -46,7 +46,7 @@
   (mnas-package:make-mainfest-lisp
    '(:vlisp :vlisp/docs)
    "Vlisp"
-   '("Nick Matvyeyev")
+   '("Mykola Matvyeyev")
    (mnas-package:find-sources "vlisp")
    :output-format of)
   (codex:document :vlisp)
