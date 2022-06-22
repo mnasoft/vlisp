@@ -7,7 +7,7 @@
   - создания примитивов;
   - манипулирования системными переменными.
 "
-  :author "Nick Matvyeyev <mnasoft@gmail.com>"
+  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :version "0.0.2"
   :depends-on ("vlisp/core" "vlisp/axis")
@@ -15,7 +15,7 @@
 
 (defsystem "vlisp/core"
   :description "Core"
-  :author "Nick Matvyeyev <mnasoft@gmail.com>"
+  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("vlisp/axis" "mnas-string")
   :serial t
@@ -28,7 +28,7 @@
 
 (defsystem "vlisp/dr"
   :description "Axis"
-  :author "Nick Matvyeyev <mnasoft@gmail.com>"
+  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("mnas-string" "vlisp/core")
   :components ((:module "src/dr"
@@ -37,7 +37,7 @@
 
 (defsystem "vlisp/axis"
   :description "Axis"
-  :author "Nick Matvyeyev <mnasoft@gmail.com>"
+  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("mnas-string")
   :components ((:module "src/axis"
@@ -46,7 +46,7 @@
 
 (defsystem "vlisp/docs"
   :description "Зависимости для сборки документации"
-  :author "Nick Matvyeyev <mnasoft@gmail.com>"
+  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("vlisp" "codex" "mnas-package")
   :components ((:module "src/docs"
