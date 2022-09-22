@@ -1,11 +1,10 @@
 (:docstring-markup-format
    :scriba
-   :systems (:VLISP :VLISP/DOCS)
+   :systems (:VLISP)
    :documents ((:title "Vlisp"
 	        :authors ("Mykola Matvyeyev")
-	        :output-format (:TYPE :MULTI-HTML :TEMPLATE :GAMMA) 
-                :sources ("vlisp.scr" "vlisp-dr.scr" "vlisp-docs.scr"
-                          "vlisp-axis.scr" "vlisp-graph.scr"
-                          "vlisp-axis-graph.scr" "vlisp-dr-graph.scr"
-                          "vlisp-docs-graph.scr")
+	        :output-format (:TYPE :MULTI-HTML :TEMPLATE :GAMMA)
+                :sources ("vlisp-dr.scr" "vlisp.scr" "vlisp-axis.scr"
+                          "vlisp-axis-graph.scr" "vlisp-graph.scr"
+                          "vlisp-dr-graph.scr" "vlisp-docs-graph.scr")
                 )))
