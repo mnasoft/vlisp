@@ -1,6 +1,6 @@
 ;;;; ./src/core/temp.lisp
 
-(in-package #:vlisp)
+(in-package :vlisp)
 
 (defun vla-Add ())
 (defun vla-Add3DFace ())

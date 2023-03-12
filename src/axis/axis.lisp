@@ -1,6 +1,6 @@
 ;;;; ./src/axis/axis.lisp
 
-(defpackage #:vlisp/axis
+(defpackage :vlisp/axis
   (:use #:cl)
   (:export axis-point-type-block-name
 	   axis-load-reset-point-types
@@ -16,7 +16,7 @@
 	   axis-print-list
 	   axis-draw-multiple-graphs-by-axis-names))
 
-(in-package #:vlisp/axis)
+(in-package :vlisp/axis)
 
 (defun axis-point-type-block-name (&key (os *standard-output*))
   (format os "(axis:point-type-block-name)"))

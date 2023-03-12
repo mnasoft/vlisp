@@ -1,6 +1,6 @@
 ;;;; test.lisp
 
-(in-package #:vlisp)
+(in-package :vlisp)
 
 ;;;;  (load-vlisp-file "./src/lsp/utils/draw.lsp")
 

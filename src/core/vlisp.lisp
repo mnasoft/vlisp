@@ -1,6 +1,6 @@
 ;;;; ./src/core/vlisp.lisp
 
-(defpackage #:vlisp
+(defpackage :vlisp
   (:use #:cl)
   (:export *origin*
 	   )
@@ -30,7 +30,7 @@
            textbox
            ))
 
-(in-package #:vlisp)
+(in-package :vlisp)
 
 (defun load-vlisp-file (fname &key (os *standard-output*))
   (format os "(load (findfile ~s))~%" fname))

@@ -1,4 +1,4 @@
-(in-package #:vlisp)
+(in-package :vlisp)
 
 (defun import-one (data)
   "Выполняет преобразование строки спецификации, в табличную форму"

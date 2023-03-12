@@ -1,6 +1,6 @@
 ;;;; ./src/docs/docs.lisp
 
-(defpackage #:vlisp/docs
+(defpackage :vlisp/docs
   (:use #:cl ) 
   (:nicknames "VL/DOCS")
   (:export make-all)

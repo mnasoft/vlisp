@@ -1,6 +1,6 @@
 ;;;; ./src/dr/dr.lisp
 
-(defpackage #:vlisp/dr
+(defpackage :vlisp/dr
   (:use #:cl)
   (:intern dotted-listp)
   (:export dr-axis
@@ -24,7 +24,7 @@
 	   dr-format-a4
 	   dr-format-a3))
 
-(in-package #:vlisp/dr)
+(in-package :vlisp/dr)
 
 (defun dotted-listp (lst)
   (not (listp (cdr (last lst)))))

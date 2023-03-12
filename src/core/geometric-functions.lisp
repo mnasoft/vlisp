@@ -2,7 +2,7 @@
 
 ;;;;selection-set-manipulation-functions
 
-(in-package #:vlisp)
+(in-package :vlisp)
 
 " * Geometric functions
 

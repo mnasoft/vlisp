@@ -1,6 +1,6 @@
 ;;;; selection-set-manipulation-functions
 
-(in-package #:vlisp)
+(in-package :vlisp)
 
 "
 * Selection set manipulation functions
