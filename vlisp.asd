@@ -9,14 +9,12 @@
 "
   :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
-  :version "0.0.2"
+  :version "0.1.0"
   :depends-on ("vlisp/core" "vlisp/axis" "vlisp/dr")
   :serial nil)
 
 (defsystem "vlisp/core"
   :description "Core"
-  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
-  :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("vlisp/axis" "mnas-string")
   :serial t
   :components ((:module "src/core"
@@ -28,8 +26,6 @@
 
 (defsystem "vlisp/dr"
   :description "Axis"
-  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
-  :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("mnas-string" "vlisp/core")
   :components ((:module "src/dr"
 		:serial nil
@@ -37,8 +33,6 @@
 
 (defsystem "vlisp/axis"
   :description "Axis"
-  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
-  :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("mnas-string")
   :components ((:module "src/axis"
 		:serial nil
@@ -46,8 +40,6 @@
 
 (defsystem "vlisp/docs"
   :description "Зависимости для сборки документации"
-  :author "Mykola Matvyeyev <mnasoft@gmail.com>"
-  :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :depends-on ("vlisp" "codex" "mnas-package")
   :components ((:module "src/docs"
 		:serial nil

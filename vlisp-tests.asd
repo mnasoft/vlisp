@@ -2,7 +2,7 @@
 
 (defsystem "vlisp-tests"
   :description "Тесты для vlisp (векторные операции, геометрические функции)"
-  :version "0.0.2"
+  :version "0.1.0"
   :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"
   
