@@ -53,6 +53,23 @@
                 :serial t
                 :components ((:file "tests")))))
 
+(defsystem "vlisp/geometry-svg"
+  :description "SVG-рендеринг 2D примитивов vlisp/geometry"
+  :depends-on ("vlisp/geometry")
+  :serial t
+  :components ((:module "src/geometry/svg"
+                :serial t
+                :components ((:file "package")
+                             (:file "svg")))))
+
+(defsystem "vlisp/geometry-svg-tests"
+  :description "Тесты SVG-рендеринга"
+  :depends-on ("vlisp/geometry-svg" "fiveam")
+  :serial t
+  :components ((:module "src/geometry/svg/tests"
+                :serial t
+                :components ((:file "tests")))))
+
 (defsystem "vlisp/geometry"
   :description "2D геометрические примитивы (отрезок, окружность, дуга)"
   :depends-on ()
