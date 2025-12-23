@@ -37,8 +37,8 @@
 Окружность.
 
 **Аксессоры:**
-- `center` - центр окружности (<point-2d>)
-- `radius` - радиус
+- `<circle-2d>-center` - центр окружности (<point-2d>)
+- `<circle-2d>-radius` - радиус
 
 **Методы:**
 - `(perimeter circ)` - длина окружности (периметр)
@@ -55,10 +55,10 @@
 Дуга окружности.
 
 **Аксессоры:**
-- `arc-center` - центр дуги (<point-2d>)
-- `arc-radius` - радиус дуги
-- `start-angle` - начальный угол (в радианах)
-- `end-angle` - конечный угол (в радианах)
+- `<arc-2d>-center` - центр дуги (<point-2d>)
+- `<arc-2d>-radius` - радиус дуги
+- `<arc-2d>-start-angle` - начальный угол (в радианах)
+- `<arc-2d>-end-angle` - конечный угол (в радианах)
 
 **Методы:**
 - `(perimeter a)` - длина дуги
@@ -66,8 +66,8 @@
 **Пример:**
 ```lisp
 (make-instance 'vlisp/geometry:<arc-2d>
-               :arc-center (make-instance 'vlisp/geometry:<point-2d> :x 0 :y 0)
-               :arc-radius 5.0
+               :center (make-instance 'vlisp/geometry:<point-2d> :x 0 :y 0)
+               :radius 5.0
                :start-angle 0.0
                :end-angle (/ pi 2))
 ```
@@ -133,4 +133,6 @@
 ## Структура файлов
 
 - `package.lisp` - определение пакета и экспортируемых символов
-- `primitives.lisp` - определение классов и методов для геометрических примитивов
+- `primitives.lisp` - определение классов геометрических примитивов
+- `defgeneric.lisp` - общие объявления generic-функций
+- `methods/` - директория с методами (print-object, perimeter, area, distance, curve-start-param, curve-end-param, curve-start-point, curve-end-point, curve-dist-at-param, curve-point-at-param, curve-first-deriv, curve-second-deriv, curve-curvature, curve-normal-at-param)

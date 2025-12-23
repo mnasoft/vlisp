@@ -9,7 +9,7 @@
 "
   :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
-  :version "0.1.0"
+  :version "0.1.1"
   :depends-on ("vlisp/core" "vlisp/axis" "vlisp/dr" "vlisp/geometry")
   :serial nil)
 
@@ -45,6 +45,14 @@
 		:serial nil
                 :components ((:file "docs")))))
 
+(defsystem "vlisp/geometry-tests"
+  :description "Тесты для модуля vlisp/geometry"
+  :depends-on ("vlisp/geometry" "fiveam")
+  :serial t
+  :components ((:module "src/geometry/tests"
+                :serial t
+                :components ((:file "tests")))))
+
 (defsystem "vlisp/geometry"
   :description "2D геометрические примитивы (отрезок, окружность, дуга)"
   :depends-on ()
@@ -52,4 +60,20 @@
   :components ((:module "src/geometry"
 		:serial t
                 :components ((:file "package")
-                             (:file "primitives")))))
+                             (:file "primitives")
+                             (:file "defgeneric")
+                             (:module "methods"
+                                      :serial t
+                                      :components ((:file "print-object")
+                                                   (:file "perimeter")
+                                                   (:file "area")
+                                                   (:file "distance")
+                                                   (:file "parameters")
+                                                   (:file "curve-dist-at-param")
+                                                   (:file "curve-point-at-param")
+                                                   (:file "curve-start-point")
+                                                   (:file "curve-end-point")
+                                                   (:file "curve-first-deriv")
+                                                   (:file "curve-second-deriv")
+                                                   (:file "curve-curvature")
+                                                   (:file "curve-normal-at-param")))))))

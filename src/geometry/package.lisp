@@ -20,18 +20,28 @@
    #:<line-2d>-end-point
    
    ;; Аксессоры для <circle-2d>
-   #:center
-   #:radius
+   #:<circle-2d>-center
+   #:<circle-2d>-radius
    
-   ;; Аксессоры для <arc-2d>
-   #:arc-center
-   #:arc-radius
-   #:start-angle
-   #:end-angle
+    ;; Аксессоры для <arc-2d>
+    #:<arc-2d>-center
+    #:<arc-2d>-radius
+    #:<arc-2d>-start-angle
+    #:<arc-2d>-end-angle
    
    ;; Методы
    #:distance
    #:perimeter
-   #:area))
+   #:area
+   #:curve-start-param
+ #:curve-end-param
+   #:curve-start-point
+   #:curve-end-point
+   #:curve-dist-at-param
+  #:curve-point-at-param
+  #:curve-first-deriv
+  #:curve-second-deriv
+  #:curve-curvature
+  #:curve-normal-at-param))
 
 (in-package #:vlisp/geometry)
