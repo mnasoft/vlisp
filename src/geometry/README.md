@@ -8,27 +8,27 @@
 Точка в двумерном пространстве.
 
 **Аксессоры:**
-- `<point-2d>-x` - X-координата
-- `<point-2d>-y` - Y-координата
+- `x` - X-координата
+- `y` - Y-координата
 
 **Пример:**
 ```lisp
 (make-instance 'vlisp/geometry:<point-2d> :x 10.0 :y 20.0)
 ```
 
-### <line-segment>
+### <line-2d>
 Отрезок прямой.
 
 **Аксессоры:**
-- `<line-segment>-start-point` - начальная точка (<point-2d>)
-- `<line-segment>-end-point` - конечная точка (<point-2d>)
+- `<line-2d>-start-point` - начальная точка (<point-2d>)
+- `<line-2d>-end-point` - конечная точка (<point-2d>)
 
 **Методы:**
 - `(perimeter seg)` - длина отрезка
 
 **Пример:**
 ```lisp
-(make-instance 'vlisp/geometry:<line-segment>
+(make-instance 'vlisp/geometry:<line-2d>
                :start-point (make-instance 'vlisp/geometry:<point-2d> :x 0 :y 0)
                :end-point (make-instance 'vlisp/geometry:<point-2d> :x 3 :y 4))
 ```
@@ -37,8 +37,8 @@
 Окружность.
 
 **Аксессоры:**
-- `<circle-2d>-center` - центр окружности (<point-2d>)
-- `<circle-2d>-radius` - радиус
+- `center` - центр окружности (<point-2d>)
+- `radius` - радиус
 
 **Методы:**
 - `(perimeter circ)` - длина окружности (периметр)
@@ -55,10 +55,10 @@
 Дуга окружности.
 
 **Аксессоры:**
-- `<arc-2d>-arc-center` - центр дуги (<point-2d>)
-- `<arc-2d>-arc-radius` - радиус дуги
-- `<arc-2d>-start-angle` - начальный угол (в радианах)
-- `<arc-2d>-end-angle` - конечный угол (в радианах)
+- `arc-center` - центр дуги (<point-2d>)
+- `arc-radius` - радиус дуги
+- `start-angle` - начальный угол (в радианах)
+- `end-angle` - конечный угол (в радианах)
 
 **Методы:**
 - `(perimeter a)` - длина дуги
@@ -109,7 +109,7 @@
 ; => 14.142135623730951
 
 ;; Создаем отрезок
-(defvar seg (make-instance '<line-segment> :start-point p1 :end-point p2))
+(defvar seg (make-instance '<line-2d> :start-point p1 :end-point p2))
 (perimeter seg)
 ; => 14.142135623730951
 

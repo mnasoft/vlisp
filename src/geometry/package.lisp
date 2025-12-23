@@ -7,27 +7,27 @@
    ;; Классы примитивов
    #:<geometric-object>
    #:<point-2d>
-   #:<line-segment>
+   #:<line-2d>
    #:<circle-2d>
    #:<arc-2d>
    
    ;; Аксессоры для <point-2d>
-   #:<point-2d>-x
-   #:<point-2d>-y
+   #:x
+   #:y
    
-   ;; Аксессоры для <line-segment>
-   #:<line-segment>-start-point
-   #:<line-segment>-end-point
+   ;; Аксессоры для <line-2d>
+   #:<line-2d>-start-point
+   #:<line-2d>-end-point
    
    ;; Аксессоры для <circle-2d>
-   #:<circle-2d>-center
-   #:<circle-2d>-radius
+   #:center
+   #:radius
    
    ;; Аксессоры для <arc-2d>
-   #:<arc-2d>-arc-center
-   #:<arc-2d>-arc-radius
-   #:<arc-2d>-start-angle
-   #:<arc-2d>-end-angle
+   #:arc-center
+   #:arc-radius
+   #:start-angle
+   #:end-angle
    
    ;; Методы
    #:distance
