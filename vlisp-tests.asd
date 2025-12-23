@@ -7,6 +7,7 @@
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"
   
   :depends-on (:vlisp
+               :vlisp/geometry-svg
                :fiveam)
   :perform (test-op (o s)
                     (uiop:symbol-call :vlisp/tests :run-tests))
@@ -18,4 +19,5 @@
     ((:file "package")
      (:file "utils")
      (:file "vector-tests")
-     (:file "geometric-tests")))))
+     (:file "geometric-tests")
+     (:file "geometry-svg-tests")))))
