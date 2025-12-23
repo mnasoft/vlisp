@@ -10,7 +10,7 @@
   :author "Mykola Matvyeyev <mnasoft@gmail.com>"
   :license "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 or later"  
   :version "0.1.0"
-  :depends-on ("vlisp/core" "vlisp/axis" "vlisp/dr")
+  :depends-on ("vlisp/core" "vlisp/axis" "vlisp/dr" "vlisp/geometry")
   :serial nil)
 
 (defsystem "vlisp/core"
@@ -44,3 +44,12 @@
   :components ((:module "src/docs"
 		:serial nil
                 :components ((:file "docs")))))
+
+(defsystem "vlisp/geometry"
+  :description "2D геометрические примитивы (отрезок, окружность, дуга)"
+  :depends-on ()
+  :serial t
+  :components ((:module "src/geometry"
+		:serial t
+                :components ((:file "package")
+                             (:file "primitives")))))
