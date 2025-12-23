@@ -5,29 +5,29 @@
   (:use #:cl)
   (:export
    ;; Классы примитивов
-   #:geometric-object
-   #:point-2d
-   #:line-segment
-   #:circle
-   #:arc
+   #:<geometric-object>
+   #:<point-2d>
+   #:<line-segment>
+   #:<circle-2d>
+   #:<arc-2d>
    
-   ;; Слоты для point-2d
-   #:x
-   #:y
+   ;; Аксессоры для <point-2d>
+   #:<point-2d>-x
+   #:<point-2d>-y
    
-   ;; Слоты для line-segment
-   #:start-point
-   #:end-point
+   ;; Аксессоры для <line-segment>
+   #:<line-segment>-start-point
+   #:<line-segment>-end-point
    
-   ;; Слоты для circle
-   #:center
-   #:radius
+   ;; Аксессоры для <circle-2d>
+   #:<circle-2d>-center
+   #:<circle-2d>-radius
    
-   ;; Слоты для arc
-   #:arc-center
-   #:arc-radius
-   #:start-angle
-   #:end-angle
+   ;; Аксессоры для <arc-2d>
+   #:<arc-2d>-arc-center
+   #:<arc-2d>-arc-radius
+   #:<arc-2d>-start-angle
+   #:<arc-2d>-end-angle
    
    ;; Методы
    #:distance
