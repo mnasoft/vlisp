@@ -8,8 +8,8 @@
 
 (defun %normalize (dx dy)
   (let ((len (sqrt (+ (* dx dx) (* dy dy)))))
-    (if (<= len 0.0)
-        (values 0.0 0.0)
+    (if (<= len 0.0d0)
+        (values 0.0d0 0.0d0)
         (values (/ dx len) (/ dy len)))))
 
 (defun %apply-side (nx ny side)

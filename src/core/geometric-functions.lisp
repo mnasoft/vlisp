@@ -86,11 +86,18 @@
 		((and onseg (<= 0 Ua 1) (<= 0 Ub 1)) (values rez-a rez-b))
 		(t nil))))))
 
-(defun polar (point angle distance)
+(defmethod polar ((point cons) (angle number) (distance number))
   "Returns the UCS 3D point at a specified angle and distance from a point.
 
 Возвращает трехмерную точку ПСК под заданным углом и расстоянием от точки."
-  (vector+ point (list (* distance (cos angle)) (* distance (sin angle)) 0)))
+  (vector+ point (list (* distance (cos angle)) (* distance (sin angle)) 0.0d0)))
+
+(defmethod polar ((point vlisp/geometry:<point-2d>) (angle number) (distance number))
+  "Returns the UCS 3D point at a specified angle and distance from a point.
+
+Возвращает трехмерную точку ПСК под заданным углом и расстоянием от точки."
+  (vector+ point (list (* distance (cos angle)) (* distance (sin angle)) 0.0d0)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
