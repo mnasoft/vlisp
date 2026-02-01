@@ -22,7 +22,7 @@
 
 (defmethod curve-start-param ((circ <circle-2d>))
   "Начальный параметр окружности (радианы)."
-  0.0)
+  0.0d0)
 
 (defmethod curve-end-param ((circ <circle-2d>))
   "Конечный параметр окружности (радианы)."

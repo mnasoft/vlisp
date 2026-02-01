@@ -15,7 +15,7 @@
 
 (defsystem "vlisp/core"
   :description "Core"
-  :depends-on ("vlisp/axis" "mnas-string")
+  :depends-on ("vlisp/geometry" "vlisp/axis" "mnas-string")
   :serial t
   :components ((:module "src/core"
                 :serial nil
